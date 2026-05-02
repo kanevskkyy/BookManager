@@ -58,3 +58,7 @@ jobs:
             /p:ContainerImageTag=latest \
             /p:ContainerRegistry=$REGISTRY \
             /p:ContainerRepository=bookmanager
+
+      - name: Push to ECR
+        run: |
+          docker push ${{ secrets.REPOSITORY }}:latest
