@@ -3,8 +3,5 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <ContainerImageTags>1.0.0;latest</ContainerImageTags>
-        <ContainerRepository>bookmanager</ContainerRepository>
-        <PublishProfile>DefaultContainer</PublishProfile>
     </PropertyGroup>
 </Project>
