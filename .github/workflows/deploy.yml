@@ -59,6 +59,9 @@ jobs:
             /p:ContainerRegistry=$REGISTRY \
             /p:ContainerRepository=bookmanager
 
+      - name: Check local images
+        run: docker images
+        
       - name: Push to ECR
         run: |
           docker push ${{ secrets.REPOSITORY }}:latest
