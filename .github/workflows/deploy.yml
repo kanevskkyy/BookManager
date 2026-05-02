@@ -35,11 +35,6 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup .NET 9 SDK
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '9.0.x'
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -50,10 +45,7 @@ jobs:
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
 
-      - name: Publish Docker Image to Amazon ECR
-        env:
-          REPOSITORY: ${{ secrets.REPOSITORY }}
+      - name: Build and Push Docker Image
         run: |
-          dotnet publish --os linux --arch x64 \
-            /p:ContainerImageTag=latest \
-            /p:ContainerRegistry=$REPOSITORY
+          docker build -t ${{ secrets.REPOSITORY }}:latest ./BookManager
+          docker push ${{ secrets.REPOSITORY }}:latest
