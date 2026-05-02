@@ -1,0 +1,58 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# .NET
+TestResult*/
+*.trx
+*.coverage
+*.coveragexml
+*.nupkg
+*.snupkg
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# ASP.NET / local configuration
+appsettings.*.local.json
+appsettings.Local.json
+secrets.json
+*.db
+*.db-shm
+*.db-wal
+
+# Publish output
+publish/
+*.Publish.xml
+
+# JetBrains Rider / IntelliJ
+.idea/
+*.sln.iml
+.env
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# NuGet
+packages/
+*.nuget.props
+*.nuget.targets
+
+# Node / frontend assets if added later
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
