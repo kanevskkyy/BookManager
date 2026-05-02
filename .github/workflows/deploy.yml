@@ -51,6 +51,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Publish Docker Image to Amazon ECR
-        run: dotnet publish --os linux --arch x64
-          /p:ContainerImageTags="1.0.0;latest"
-          /p:ContainerRegistry=${{ secrets.REPOSITORY }}
+        run: |
+          dotnet publish --os linux --arch x64 \
+            /p:ContainerImageTag=latest \
+            /p:ContainerRegistry=${{ secrets.REPOSITORY }}
