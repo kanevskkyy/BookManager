@@ -55,13 +55,7 @@ jobs:
           REGISTRY=$(echo "${{ secrets.REPOSITORY }}" | cut -d'/' -f1)
           dotnet publish ./BookManager/BookManager.csproj \
             --os linux --arch x64 \
-            /p:ContainerImageTag=latest \
-            /p:ContainerRegistry=$REGISTRY \
-            /p:ContainerRepository=bookmanager
-
-      - name: Check local images
-        run: docker images
-        
-      - name: Push to ECR
-        run: |
-          docker push ${{ secrets.REPOSITORY }}:latest
+            -p:PublishProfile=DefaultContainer \
+            -p:ContainerImageTag=latest \
+            -p:ContainerRegistry=$REGISTRY \
+            -p:ContainerRepository=bookmanager
